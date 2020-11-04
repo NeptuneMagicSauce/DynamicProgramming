@@ -3,6 +3,7 @@ using namespace std;
 
 /*
 
+objective =
 count all unique strings
 that are substrings of input data
 found by removing characters from
