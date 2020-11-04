@@ -37,9 +37,9 @@ const vector<Point> deltas =
 int gold_count = 0;
 vector<Path> paths;
 
-void recurse(vector<vector<int>>& data, Path path)
+void recurse(vector<vector<int>>& data, Path current_path)
 {
-    auto start = path.points.back();
+    auto start = current_path.points.back();
 
     if (start.x < 0 || start.y < 0 ||
         start.x >= data.size() || start.y >= data[0].size()) {
@@ -55,19 +55,19 @@ void recurse(vector<vector<int>>& data, Path path)
     }
 
     // count gold
-    path.gold_collected += (value == 2);
+    current_path.gold_collected += (value == 2);
 
     if (start.x == data.size() - 1 &&
         start.y == data[0].size() - 1 &&
-        path.gold_collected == gold_count) {
+        current_path.gold_collected == gold_count) {
         // reached ending with all gold
-        paths.push_back(path);
+        paths.push_back(current_path);
         return;
     }
 
     for (auto& delta: deltas) {
         // recurse in all 4 directions
-        Path next_path = path;
+        Path next_path = current_path;
         next_path.points.push_back({ start.x + delta.x, start.y + delta.y });
         recurse(data, next_path);
     }
