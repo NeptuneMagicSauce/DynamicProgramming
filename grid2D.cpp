@@ -42,7 +42,7 @@ void recurse(vector<vector<int>>& data, Path current_path)
     auto start = current_path.points.back();
 
     if (start.x < 0 || start.y < 0 ||
-        start.x >= data.size() || start.y >= data[0].size()) {
+        start.x >= int(data.size()) || start.y >= int(data[0].size())) {
         // out of bounds
         return;
     }
@@ -57,8 +57,8 @@ void recurse(vector<vector<int>>& data, Path current_path)
     // count gold
     current_path.gold_collected += (value == 2);
 
-    if (start.x == data.size() - 1 &&
-        start.y == data[0].size() - 1 &&
+    if (start.x == int(data.size()) - 1 &&
+        start.y == int(data[0].size()) - 1 &&
         current_path.gold_collected == gold_count) {
         // reached ending with all gold
         paths.push_back(current_path);
