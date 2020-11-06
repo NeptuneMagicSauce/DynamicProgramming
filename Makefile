@@ -1,3 +1,10 @@
-all:
-	g++ -std=c++17 -c grid2D.cpp
-	g++ -std=c++17 -c string.cpp
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(SOURCES:.cpp=.o)
+FLAGS = -std=c++17 -c
+#-Wall -Wextra
+
+all: $(OBJECTS)
+.cpp.o:
+	g++ $(FLAGS) $<
+clean:
+	rm $(OBJECTS)
