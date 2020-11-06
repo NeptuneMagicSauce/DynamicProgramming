@@ -1,5 +1,5 @@
-// C++ code to find number of unique paths
-// in a Matrix
+// source: https://www.geeksforgeeks.org/unique-paths-in-a-grid-with-obstacles/
+
 #include<bits/stdc++.h>
 using namespace std;
 

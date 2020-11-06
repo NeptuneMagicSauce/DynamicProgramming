@@ -15,9 +15,9 @@ int process(string input)
 {
     set<string> results;
 
-    for (int size = input.size(); size>0; --size) {
-        for (int start=0; start<input.size(); ++start) {
-            auto size_clamped = std::min(size, int(input.size() - start));
+    for (std::size_t size = input.size(); size>0; --size) {
+        for (std::size_t start=0; start<input.size(); ++start) {
+            auto size_clamped = std::min(size, input.size() - start);
             auto substr = input.substr(start, size_clamped);
             results.insert(substr);
         }
